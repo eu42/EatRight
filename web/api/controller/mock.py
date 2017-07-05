@@ -111,8 +111,9 @@ def createMocks(req):
     AhmetMutfak     = User(first_name='Ahmet', last_name='Mutfak',     username='info@mutfak.com',        email='info@mutfak.com')
     NecmiAbi        = User(first_name='Necmi', last_name='Abi',        username='info@kuzeykantin.com',   email='info@kuzeykantin.com')
     OmerAybak       = User(first_name='Omer' , last_name='Aybak',      username='cigkofte02@hotmail.com', email='cigkofte02@hotmail.com')
+    User1           = User(first_name='Sophie', last_name='Weber',     username='sophie.weber',           email='sophie@gmail.com')
 
-    for user in [Kagan, Erkam, Arda, Murat, Yigit, Gozde, Enes, AhmetMcDonalds, AhmetBurgerKing, AhmetMutfak]:
+    for user in [Kagan, Erkam, Arda, Murat, Yigit, Gozde, Enes, AhmetMcDonalds, AhmetBurgerKing, AhmetMutfak, NecmiAbi, OmerAybak, User1]:
         user.set_password('123456')
         user.save()
 
@@ -122,7 +123,7 @@ def createMocks(req):
     KuzeyKantin = Restaurant(user=NecmiAbi,        name='Kuzey Kantin',          description=None,                            photo='http://www.otk.boun.edu.tr/lisans/sites/default/files/14249692_611736205671349_6342629255368353570_o.jpg')
     Adiyaman    = Restaurant(user=OmerAybak,       name='Adiyaman',              description='Meshur adiyaman cig koctecisi', photo='https://lh3.googleusercontent.com/7qDc8280Y4obPJfxmYAAI3EdWiQ_spw1Ywhuar8_RsGdUyRIVQCWPP6Ys8mxemsTIzT2jX4=s630-fcrop64=1,00000000fd5afdfa')
 
-    for restaurant in [Mcdonalds, BurgerKing, Mutfak]:
+    for restaurant in [Mcdonalds, BurgerKing, Mutfak, KuzeyKantin, Adiyaman]:
         restaurant.save()
 
     BigKingMenu = Food(name='Big King Menu', restaurant=BurgerKing, photo='https://www.burgerking.com.tr/cmsfiles/products/big-king-menu-1.png?v=96')
@@ -152,6 +153,18 @@ def createMocks(req):
     Manti.inclusion_set.add(Inclusion(ingredient=RedPepper, value=10, unit='g'), bulk=False)
     Manti.inclusion_set.add(Inclusion(ingredient=Yogourt, value=10, unit='g'), bulk=False)
 
+    Soup = Food(name='Tomato Soup', user=AhmetMutfak, restaurant=Mutfak, photo='http://images.media-allrecipes.com/userphotos/720x405/704856.jpg')
+    Soup.save()
+    Soup.inclusion_set.add(Inclusion(ingredient=Tomatoe, value=3, unit='count'), bulk=False)
+    Soup.inclusion_set.add(Inclusion(ingredient=Onion, value=1, unit='count'), bulk=False)
+    Soup.inclusion_set.add(Inclusion(ingredient=Butter, value=20, unit='g'), bulk=False)
+    Soup.inclusion_set.add(Inclusion(ingredient=Salt, value=5, unit='g'), bulk=False)
+
+    Food1 = Food(name='Fruit Salad', user=AhmetMutfak, restaurant=Mutfak, photo='')
+    Food1.save()
+    Food1.inclusion_set.add(Inclusion(ingredient=Apple, value=0.5, unit='count'), bulk=False)
+    Food1.inclusion_set.add(Inclusion(ingredient=Banana, value=0.5, unit='count'), bulk=False)
+    Food1.inclusion_set.add(Inclusion(ingredient=Figs, value=1, unit='count'), bulk=False)
 
     Vegan = Diet(name="Vegan", minEnergy=0, maxEnergy=9999, minProteinVal=0, maxProteinVal=9999, minCarbVal=0, maxCarbVal=9999, minFatVal=0, maxFatVal=9999, minProteinRate=0, maxProteinRate=1, minCarbRate=0, maxCarbRate=1, minFatRate=0, maxFatRate=1)
     Vegan.save()
