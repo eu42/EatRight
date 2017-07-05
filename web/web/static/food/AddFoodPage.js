@@ -203,7 +203,7 @@ var AddFoodPage = function (_React$Component) {
                 null,
                 ' Description '
               ),
-              React.createElement('input', { type: 'url', name: 'photo', placeholder: 'image url', value: this.state.description, onChange: this.descriptionChanged.bind(this) })
+              React.createElement('input', { type: 'text', name: 'description', placeholder: 'description', value: this.state.description, onChange: this.descriptionChanged.bind(this) })
             )
           )
         ),

@@ -135,7 +135,7 @@ export default class AddFoodPage extends React.Component {
             }
             <div className="field">
               <label> Description </label>
-              <input type="url" name="photo" placeholder="image url" value={this.state.description} onChange={this.descriptionChanged.bind(this)}/>
+              <input type="text" name="description" placeholder="description" value={this.state.description} onChange={this.descriptionChanged.bind(this)}/>
             </div>
           </form>
         </div>
