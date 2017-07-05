@@ -107,7 +107,7 @@ def calculateUserHistory(userId, startDate, endDate):
 
     for ateFood in ateFoodArr:
         # initialize a new object on dict if given day is not found
-        dateStr = datetime.datetime.strptime(ateFood['created'], "%Y-%m-%dT%H:%M:%S.%fZ").strftime('%d-%m-%Y')
+        dateStr = datetime.datetime.strptime(ateFood['created'], "%Y-%m-%dT%H:%M:%SZ").strftime('%d-%m-%Y')
         if dateStr not in daily:
             daily[dateStr] = getAnalyticTemplate()
             daily[dateStr]['ateFoods'] = []
